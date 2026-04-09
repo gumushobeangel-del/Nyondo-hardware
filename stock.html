@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NYONDO Hardware Stock Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img src="images/logo22.png" alt="Logo" class="logo" />
+      </div>
+      <h1>NYONDO HARDWARE STOCK FORM</h1>
+      <form>
+        <h2>Item Details</h2>
+        <label for="itemName">Item Name</label>
+        <input type="text" id="Name" placeholder="Item name" required />
+
+        <label for="itemCode">Item Code</label>
+        <input type="text" id="Code" placeholder="Item code" required />
+
+        <label for="unitPrice">Unit Price</label>
+        <input type="text" id="Price" placeholder="Unit price" required />
+
+        <label for="category">Category</label>
+        <input type="text" id="category" placeholder="Category" required />
+
+        <h2>Stock Information</h2>
+        <label for="quantityInStock">Quantity in Stock</label>
+        <input
+          type="text"
+          id="InStock"
+          placeholder="Quantity in stock"
+          required
+        />
+
+        <label for="minStockLevel">Minimum Stock Level</label>
+        <input
+          type="text"
+          id="minStock"
+          placeholder="Minimum stock level"
+          required
+        />
+
+        <label for="unit">Unit of Measurement</label>
+        <input
+          type="text"
+          id="unit"
+          placeholder="Unit of measurement"
+          required
+        />
+
+        <h2>Pricing Details</h2>
+        <label for="costPrice">Cost Price</label>
+        <input type="text" id="cost" placeholder="Cost price" required />
+
+        <label for="sellingPrice">Selling Price</label>
+        <input
+          type="text"
+          id="selling"
+          placeholder="Selling price"
+          required
+        />
+
+        <label for="totalValue">Total Value</label>
+        <input type="text" id="Value" placeholder="Total value" required />
+
+        <h2>Supplier Information</h2>
+        <label for="supplierName">Supplier Name</label>
+        <input
+          type="text"
+          id="supplier"
+          placeholder="Supplier name"
+          required
+        />
+
+        <label for="supplierContact">Contact</label>
+        <input
+          type="text"
+          id="supplierContact"
+          placeholder="Contact"
+          required
+        />
+
+        <label for="supplyDate">Supply Date</label>
+        <input type="date" id="supplyDate" required />
+
+        <h2>Movement of Stock</h2>
+        <label for="stockIn">Stock In</label>
+        <input type="text" id="stockIn" placeholder="Stock in" required />
+
+        <label for="stockOut">Stock Out</label>
+        <input type="text" id="stockOut" placeholder="Stock out" required />
+
+        <label for="balanceRemaining">Balance Remaining</label>
+        <input
+          type="text"
+          id="balanceRemaining"
+          placeholder="Balance remaining"
+          required
+        />
+
+        <button type="submit">Add Stock</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  background: #f4f6f8;
+  display: flex; /*turns a container into a flexbox layout*/
+  justify-content: center;
+}
+
+.container {
+  background: rgb(118, 177, 198);
+  padding: 30px;
+  width: 550px;
+  /* the form will not be hanging */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 20px; /*this can remove the sharp edges on a form and make it to be curved*/
+}
+
+.logo {
+  width: 280px; /* adjust size */
+  display: block;
+  margin: 0 auto 10px; /* center it */
+  background-color: lightseagreen;
+}
+
+h1 {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 30px; /* pushes h2 down from the element above */
+  margin-bottom: 30px; /* adds spacing below h2 for clarity */
+  font-size: 30px;
+  color: #333;
+}
+
+/* I am giving my paragraph a color ,font-size, and also align it to the centre */
+p {
+  text-align: center;
+  color: rgb(39, 38, 38);
+  font-size: 20px;
+}
+
+/* here i am designing my entire form */
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+label {
+  margin-top: 12px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  margin-top: 7px;
+  border-radius: 6px;
+  width: 90%;
+  border: 1px solid #242323;
+}
+
+/* styling my button */
+button {
+  margin-top: 19px;
+  padding: 9px;
+  width: 60%;
+  border-radius: 6px;
+  background: #363636;
+
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+/* #I am making my submit button to hover around */
+button:hover {
+  background: #2468b1;
+}

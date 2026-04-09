@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nyondo Hardware Dashboard</title>
+    <style>
+      body {
+        margin: 0; /*removes outside spacing */
+        font-family: "Times New Roman", Times, serif;
+        background: rgb(208, 202, 202);
+      }
+
+      .header {
+        background: rgb(75, 112, 125);
+        color: white;
+        padding: 20px;
+        font-size: 40px;
+        text-align: center;
+        /* border-radius: 9px; */
+      }
+      /* #This helps my layout not to be disorganized */
+      .container {
+        display: grid; /* Enables grid layout */
+        grid-template-columns: 240px 1fr;
+      }
+      /* This sidebar styles the whole sidebar container */
+      .sidebar {
+        background: rgb(75, 112, 125);
+        color: white;
+        height: 110%;
+        padding: 20px;
+        font-size: 15px;
+        /* border-radius: 10px; */
+      }
+      /* This sidebar a styles the links inside the sidebar */
+      .sidebar a {
+        display: block;
+        padding: 12px;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        /* border-radius: 9px; */
+      }
+
+      .sidebar a:hover {
+        background: #1e293b;
+        padding: 10px;
+      }
+
+      .main {
+        padding: 20px;
+      }
+
+      .cards {
+        /* Each item sits neatly in its own column when they are not packed */
+        display: grid;
+        /* #it displays cards to be in columns */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        background: white;
+        padding: 18px;
+        border-radius: 13px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+      }
+      /* am making my cards to hover around */
+      .card:hover {
+        background: lightblue;
+        cursor: pointer;
+        /* The transform property is used to move, rotate, scale, or changing an element */
+        transform: translateY(-6px);
+      }
+      .card h3 {
+        margin: 0;
+        color: #383737;
+        font-size: 20px;
+      }
+
+      .card p {
+        font-size: 19px;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 14px;
+        font-size: 18px;
+      }
+
+      th,
+      td {
+        padding: 14px;
+        text-align: left;
+      }
+
+      th {
+        background: rgb(75, 112, 125);
+        color: white;
+      }
+      /* am giving my table heading status colors */
+      .low {
+        color: lightblue;
+        font-weight: bold;
+      }
+
+      .stock {
+        color: rgb(100, 245, 100);
+        font-weight: bold;
+      }
+      .logo {
+        width: 200px; /* adjust size */
+        display: block;
+        margin: 0 auto 10px; /* center it */
+        background-color: lightseagreen;
+      }
+      .card.logo {
+        width: 450px;
+        background: white;
+        padding: 20px;
+        margin: 40px auto; /* centers the card */
+        border-radius: 20px; /* rounded/ curved corners */
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+      footer {
+        color: black;
+        text-align: center;
+        padding: 15px;
+        margin-top: 8px;
+        margin-bottom: 20px;
+        font-size: 17px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">Nyondo General Hardware Dashboard</div>
+
+    <div class="container">
+      <div class="sidebar">
+        <div class="card.logo">
+          <img src="images/logo22.png" alt="Logo" class="logo" />
+        </div>
+        <a href="reg.html">Registration Form</a>
+        <a href="sales.html">Sales</a>
+        <a href="Deposit.html">Customers Deposit</a>
+        <a href="stock.html">Stock Management</a>
+      </div>
+
+      <div class="main">
+        <div class="cards">
+          <div class="card">
+            <h3>Total Products</h3>
+            <p>670</p>
+          </div>
+
+          <div class="card">
+            <h3>Total Sales</h3>
+            <p>UGX 6,500,000</p>
+          </div>
+
+          <div class="card">
+            <h3>Low Stock Items</h3>
+            <p>15</p>
+          </div>
+
+          <div class="card">
+            <h3>Suppliers</h3>
+            <p>18</p>
+          </div>
+        </div>
+
+        <h2>Stock Overview</h2>
+        <table>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>Price</th>
+          </tr>
+
+          <tr>
+            <td>Cement</td>
+            <td>50</td>
+            <td class="stock">In Stock</td>
+            <td>UGX 55,000</td>
+          </tr>
+
+          <tr>
+            <td>Paint</td>
+            <td>13</td>
+            <td class="low">Low Stock</td>
+            <td>UGX 45,000</td>
+          </tr>
+
+          <tr>
+            <td>Nails</td>
+            <td>210</td>
+            <td class="stock">In Stock</td>
+            <td>UGX 8,000</td>
+          </tr>
+
+          <tr>
+            <td>Ironsheets</td>
+            <td>50</td>
+            <td class="low">Low Stock</td>
+            <td>UGX 90,000</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <footer>2026 @Nyondo General Hardware Ltd All rights Copy right</footer>
+  </body>
+</html>
