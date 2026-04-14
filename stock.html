@@ -3,106 +3,326 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NYONDO Hardware Stock Form</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>NYONDO Hardware Stock System</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: rgb(89, 137, 154);
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 30px;
+      }
+
+      h3{
+        font-size: 30px;
+        color: #1e2a38;
+      }
+      /* HEADER */
+      .top-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 30px;
+        background: #1e2a38;
+        color: white;
+      }
+
+      .top-header img {
+        width: 100px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      /* LAYOUT */
+      .layout {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 20px;
+      }
+
+      /* FORM */
+      .form-section {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+  
+      .section-title {
+        grid-column: span 2;
+        font-size: 16px;
+        color: #1e2a38;
+        margin-top: 15px;
+      }
+
+      .input-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin-top: 5px;
+        font-size: 15px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #373636;
+        border-radius: 6px;
+      }
+
+      .full-width {
+        grid-column: span 2;
+      }
+
+    
+      button {
+        width: 50%;
+        padding: 12px;
+        margin-top: 15px;
+        background: linear-gradient(135deg, #1e2a38, #2f4f6f);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bold;
+        
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      button:active {
+        transform: scale(0.98);
+      }
+
+      
+      .btn {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        padding: 12px;
+        width: 50%;
+        background: white;
+        color: #1e2a38;
+        border: 2px solid #1e2a38;
+        border-radius: 8px;
+        font-weight: bold;
+        text-decoration: none;
+    
+      }
+
+      .btn:hover {
+        background: #1e2a38;
+        color: white;
+      }
+
+      /* DASHBOARD */
+      .summary-section {
+        background: #f9fafc;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 15px;
+      }
+
+      .summary-box {
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .summary-box h3 {
+        font-size: 15px;
+        color: #252525;
+      }
+
+      .summary-box p {
+        font-weight: bold;
+        margin-top: 5px;
+        color: #1e2a38;
+      }
+
+      .summary-box:hover {
+        background: lightblue;
+      }
+
+      .warning {
+        border-left: 4px solid orange;
+      }
+
+      .danger {
+        border-left: 4px solid red;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
+
   <body>
+    <header class="top-header">
+      <img src="images/logo22.png" alt="Logo" />
+      <h1>NYONDO HARDWARE STOCK SYSTEM</h1>
+    </header>
+
     <div class="container">
-      <div class="logo">
-        <img src="images/logo22.png" alt="Logo" class="logo" />
+      <div class="layout">
+      
+        <div class="form-section">
+          <h2>Stock Form</h2>
+
+          <form class="form-grid">
+            <h3 class="section-title">Item Details</h3>
+
+            <div class="input-group">
+              <label>Item Name</label>
+              <input type="text" id="item-name" placeholder="item-name" />
+            </div>
+
+            <div class="input-group">
+              <label>Supplier</label>
+              <input type="text" id="supplier" placeholder="Enter supplier name" required />
+            </div>
+
+            <div class="input-group">
+              <label>Stock Item</label>
+              <input type="text" id="stock-item" placeholder="Enter stock item name" required />
+            </div>
+
+            <div class="input-group">
+              <label>Stock Code</label>
+              <input type="text" id="stock-code" placeholder="Enter stock code" required />
+            </div>
+
+            <h3 class="section-title">Stock Details</h3>
+
+            <div class="input-group">
+              <label>Opening Stock</label>
+              <input type="number" id="opening-stock" placeholder="Enter opening stock" required />
+            </div>
+
+            <div class="input-group">
+              <label>Stock In</label>
+              <input type="number" id="stock-in" placeholder="Enter stock in" required />
+            </div>
+
+            <div class="input-group">
+              <label>Stock Out</label>
+              <input type="number" id="stock-out" placeholder="Enter stock out" required />
+            </div>
+
+            <div class="input-group">
+              <label>Current Stock</label>
+              <input type="number" id="current-stock" placeholder="Enter current stock" required />
+            </div>
+
+            <h3 class="section-title">Pricing</h3>
+
+            <div class="input-group">
+              <label>Unit Price</label>
+              <input type="text" id="unit-price" placeholder="Enter unit price" required />
+            </div>
+
+            <div class="input-group">
+              <label>Quantity</label>
+              <input type="number" id="quantity" placeholder="Enter quantity" required />
+            </div>
+
+            <div class="full-width">
+              <button type="submit">Save Stock</button>
+              <a href="suppliers.html" class="btn">Manage Suppliers</a>
+            </div>
+          </form>
+        </div>
+
+        <!-- DASHBOARD -->
+        <section class="summary-section">
+          <h2>Stock View</h2>
+
+          <div class="summary-grid">
+            <div class="summary-box">
+              <h3>Total Products</h3>
+              <p>879</p>
+            </div>
+            <div class="summary-box">
+              <h3>Total Quantity</h3>
+              <p>9,897 Units</p>
+            </div>
+            <div class="summary-box">
+              <h3>Total Value</h3>
+              <p>UGX 20,000,000</p>
+            </div>
+            <div class="summary-box">
+              <h3>Average Price</h3>
+              <p>UGX 92,000</p>
+            </div>
+            <div class="summary-box warning">
+              <h3>Low Stock</h3>
+              <p>9</p>
+            </div>
+            <div class="summary-box danger">
+              <h3>Out of Stock</h3>
+              <p>2</p>
+            </div>
+            <div class="summary-box">
+              <h3>Most Stocked</h3>
+              <p>Cement</p>
+            </div>
+            <div class="summary-box">
+              <h3>Least Stocked</h3>
+              <p>Wood</p>
+            </div>
+            <div class="summary-box">
+              <h3>Suppliers</h3>
+              <p>17</p>
+            </div>
+            <div class="summary-box">
+              <h3>Last Update</h3>
+              <p>14 May 2026</p>
+            </div>
+          </div>
+        </section>
       </div>
-      <h1>NYONDO HARDWARE STOCK FORM</h1>
-      <form>
-        <h2>Item Details</h2>
-        <label for="itemName">Item Name</label>
-        <input type="text" id="Name" placeholder="Item name" required />
-
-        <label for="itemCode">Item Code</label>
-        <input type="text" id="Code" placeholder="Item code" required />
-
-        <label for="unitPrice">Unit Price</label>
-        <input type="text" id="Price" placeholder="Unit price" required />
-
-        <label for="category">Category</label>
-        <input type="text" id="category" placeholder="Category" required />
-
-        <h2>Stock Information</h2>
-        <label for="quantityInStock">Quantity in Stock</label>
-        <input
-          type="text"
-          id="InStock"
-          placeholder="Quantity in stock"
-          required
-        />
-
-        <label for="minStockLevel">Minimum Stock Level</label>
-        <input
-          type="text"
-          id="minStock"
-          placeholder="Minimum stock level"
-          required
-        />
-
-        <label for="unit">Unit of Measurement</label>
-        <input
-          type="text"
-          id="unit"
-          placeholder="Unit of measurement"
-          required
-        />
-
-        <h2>Pricing Details</h2>
-        <label for="costPrice">Cost Price</label>
-        <input type="text" id="cost" placeholder="Cost price" required />
-
-        <label for="sellingPrice">Selling Price</label>
-        <input
-          type="text"
-          id="selling"
-          placeholder="Selling price"
-          required
-        />
-
-        <label for="totalValue">Total Value</label>
-        <input type="text" id="Value" placeholder="Total value" required />
-
-        <h2>Supplier Information</h2>
-        <label for="supplierName">Supplier Name</label>
-        <input
-          type="text"
-          id="supplier"
-          placeholder="Supplier name"
-          required
-        />
-
-        <label for="supplierContact">Contact</label>
-        <input
-          type="text"
-          id="supplierContact"
-          placeholder="Contact"
-          required
-        />
-
-        <label for="supplyDate">Supply Date</label>
-        <input type="date" id="supplyDate" required />
-
-        <h2>Movement of Stock</h2>
-        <label for="stockIn">Stock In</label>
-        <input type="text" id="stockIn" placeholder="Stock in" required />
-
-        <label for="stockOut">Stock Out</label>
-        <input type="text" id="stockOut" placeholder="Stock out" required />
-
-        <label for="balanceRemaining">Balance Remaining</label>
-        <input
-          type="text"
-          id="balanceRemaining"
-          placeholder="Balance remaining"
-          required
-        />
-
-        <button type="submit">Add Stock</button>
-      </form>
     </div>
   </body>
 </html>

@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nyondo Hardware Dashboard</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: "Times New Roman", Times, serif;
+        background: rgb(208, 202, 202);
+      }
+
+      /* top title bar */
+      .header {
+        background: rgb(75, 112, 125);
+        color: white; /* text color inside header */
+        padding: 20px; /* space inside header (top, right, bottom, left) */
+        font-size: 40px;
+        text-align: center;
+      }
+
+      /* sidebar and main content*/
+      .container {
+        display: grid; /* enables grid layout system */
+        grid-template-columns: 240px 1fr;
+        /* first column = 230px (sidebar), second = remaining space (main content) */
+      }
+
+      /* Sidebar*/
+      .sidebar {
+        background: rgb(75, 112, 125);
+        color: white; /* text color inside sidebar */
+        height: 110%; /* makes sidebar taller than screen */
+        font-size: 18px; /*makes the text size big */
+      }
+
+      /* Side bar links */
+      .sidebar a {
+        display: block; /* makes links stack vertically */
+        padding: 17px; /* space inside each link */
+        color: white; /* link text color */
+        text-decoration: none; /* removes underline */
+        font-size: 18px; /* makes text to be big for someone to read it clearly */
+      }
+
+      /* Sidebar hover effect */
+      .sidebar a:hover {
+        background: #1d293c; /* changes background when hovering */
+        padding: 10px; /*gives click feel when hovering*/
+      }
+
+      /* Main content */
+      .main {
+        padding: 20px; /* makes the main content not be fixed(to have space) */
+      }
+
+      .cards {
+        display: grid; /* makes the cards to be horinzontally aligned */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        /* auto creates columns depending on screen size */
+        gap: 20px; /* space between cards */
+      }
+
+      /* Card box */
+      .card {
+        background: white; /* card background color */
+        padding: 18px; /* space inside card */
+        border-radius: 13px; /* makes the corners to be curved */
+      }
+
+      /* Card hover effect */
+      .card:hover {
+        background: lightblue; /* changes color on hover when tapping */
+        cursor: pointer;
+        transform: translateY(-6px);
+        /* moves card slightly up*/
+      }
+
+      /* Card title */
+      .card h3 {
+        margin: 0; /* removes the space that the browser automatically gives elements*/
+        color: #272020; /*gives the heading a color */
+        font-size: 23px;
+      }
+
+      /* Card paragraph */
+      .card p {
+        font-size: 19px; /* makes number readable */
+        font-weight: bold; /* makes text thick */
+        margin-top: 16px; /* space above text */
+      }
+
+      table {
+        width: 100%; /* full width table */
+        border-collapse: collapse; /* removes gaps between borders */
+        background: white;
+        border-radius: 14px; /*makes the corners curved */
+        font-size: 18px;
+        margin-top: 20px; /* space above table */
+      }
+
+      /* Table heading */
+      th {
+        background: #1f4e5f;
+        color: white; /* changes the color of the text */
+        text-align: left; /* aligns text left making them organised */
+        padding: 14px; /* space inside cells */
+        font-size: 18px;
+      }
+
+      /* Table cells */
+      td {
+        padding: 14px; /* space inside each cell */
+        border-bottom: 1px solid rgb(240, 228, 228); /* light line between rows */
+      }
+
+      /* Table row hover */
+      tr:hover {
+        background: #ddeaf1; /* highlight row on hover */
+      }
+
+      /* Low stock text */
+      .low {
+        color: rgb(111, 190, 217); /* color for warning */
+        font-weight: bold; /* makes text bold */
+      }
+
+      /* In stock text */
+      .stock {
+        color: rgb(72, 245, 72); /* green color for success */
+        font-weight: bold; /* bold text */
+      }
+
+      .logo {
+        width: 100%; /* fills container width */
+        max-width: 200px; /* prevents it from becoming too big */
+        display: block; /* makes it behave like a block element */
+        margin: 0 auto; /* centers logo horizontally */
+      }
+
+      /* /* Logo box insidet the sidebar */
+      .sidebar .card.logo {
+        text-align: center; /* centers content */
+        background: transparent; /* removes background box */
+        box-shadow: none; /*removes shadow*/
+      }
+
+      /* MOBILE RESPONSIVENESS ONLY */
+      /* making the css that can make my form appear on mobile phones */
+      @media (max-width: 760px) {
+        /* Stack sidebar and content */
+        .container {
+          grid-template-columns: 1fr;
+        }
+
+        /* Smaller header */
+        .header {
+          font-size: 24px;
+          padding: 20px;
+        }
+
+        /* Sidebar adjustment */
+        .sidebar {
+          height: auto;
+          text-align: center;
+        }
+
+        /* Sidebar links */
+        .sidebar a {
+          padding: 12px;
+          font-size: 16px;
+        }
+
+        /* Cards stack */
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
+        /* Reduce text size */
+        .card h3 {
+          font-size: 18px;
+        }
+
+        .card p {
+          font-size: 16px;
+        }
+
+        /* Make tables scrollable */
+        table {
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
+          font-size: 14px;
+        }
+
+        th,
+        td {
+          padding: 10px;
+        }
+
+        /* Reduce spacing */
+        .main {
+          padding: 10px;
+        }
+
+        /* Smaller logo */
+        .logo {
+          max-width: 120px;
+        }
+      }
+
+      footer {
+        color: rgb(20, 10, 10);
+        text-align: center;
+        padding: 17px; /* space inside footer */
+        margin-top: 8px; /* space above footer */
+        margin-bottom: 20px; /* space below footer */
+        font-size: 17px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header">Nyondo General Hardware Dashboard</div>
+
+    <div class="container">
+      <div class="sidebar">
+        <div class="card logo">
+          <img src="images/logo22.png" alt="Logo" class="logo" />
+        </div>
+        <a href="dash.html">🏠 Dashboard</a>
+        <a href="log.html">➕ Log in</a>
+        <a href="Sale.html">💰 Add Sale</a>
+        <a href="Deposit.html">🏦 Customer Deposit</a>
+        <a href="stock.html">📦 Add Stock</a>
+        <a href="suppliers.html">🚚 Suppliers</a>
+      </div>
+
+      <div class="main">
+        <div class="cards">
+          <div class="card">
+            <h3>Total Products</h3>
+            <p>670</p>
+          </div>
+
+          <div class="card">
+            <h3>Total Sales</h3>
+            <p>UGX 6,500,000</p>
+          </div>
+
+          <div class="card">
+            <h3>Low Stock Items</h3>
+            <p>15</p>
+          </div>
+
+          <div class="card">
+            <h3>Suppliers</h3>
+            <p>18</p>
+          </div>
+        </div>
+
+        <h2>Stock Overview</h2>
+        <table>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>Price</th>
+          </tr>
+
+          <tr>
+            <td>Cement</td>
+            <td>50</td>
+            <td class="stock">In Stock</td>
+            <td>UGX 55,000</td>
+          </tr>
+
+          <tr>
+            <td>Paint</td>
+            <td>13</td>
+            <td class="low">Low Stock</td>
+            <td>UGX 45,000</td>
+          </tr>
+
+          <tr>
+            <td>Nails</td>
+            <td>210</td>
+            <td class="stock">In Stock</td>
+            <td>UGX 100,000</td>
+          </tr>
+
+          <tr>
+            <td>Ironsheets</td>
+            <td>50</td>
+            <td class="low">Low Stock</td>
+            <td>UGX 50,000</td>
+          </tr>
+        </table>
+
+        <h2>Sales Overview</h2>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Today's Sales</h3>
+            <p>UGX 1,000,000</p>
+          </div>
+
+          <div class="card">
+            <h3>This Week</h3>
+            <p>UGX 7,200,000</p>
+          </div>
+
+          <div class="card">
+            <h3>This Month</h3>
+            <p>UGX 15,500,000</p>
+          </div>
+
+          <div class="card">
+            <h3>Top Product</h3>
+            <p>Cement</p>
+          </div>
+        </div>
+
+        <table>
+          <tr>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Product</th>
+            <th>Amount</th>
+          </tr>
+
+          <tr>
+            <td>3-04-2026</td>
+            <td>Mbaleke Alphat</td>
+            <td>Cement</td>
+            <td>UGX 750,000</td>
+          </tr>
+
+          <tr>
+            <td>5-04-2026</td>
+            <td>Natukunda Alvin</td>
+            <td>Paint</td>
+            <td>UGX 500,000</td>
+          </tr>
+
+          <tr>
+            <td>10-04-2026</td>
+            <td>Nabukera Jamirah</td>
+            <td>Nails</td>
+            <td>UGX 200,000</td>
+          </tr>
+          <tr>
+            <td>12-04-2026</td>
+            <td>Nampiima Shamim</td>
+            <td>Pipes</td>
+            <td>UGX 250,000</td>
+          </tr>
+          <tr>
+            <td>14-04-2026</td>
+            <td>Kabuye Eric</td>
+            <td>Timber</td>
+            <td>UGX 500,000</td>
+          </tr>
+        </table>
+
+        <h3>Sales Trend</h3>
+        <canvas id="salesChart"></canvas>
+      </div>
+    </div>
+
+    <footer>
+      &copy 2026 @Nyondo General Hardware Ltd All rights Copy right
+    </footer>
+
+    <script>
+      const ctx = document.getElementById("salesChart");
+
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+          datasets: [
+            {
+              label: "Sales (UGX)",
+              data: [1000000, 800000, 600000, 900000, 1000000, 3000000],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+        },
+      });
+    </script>
+  </body>
+</html>

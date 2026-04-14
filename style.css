@@ -1,84 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 body {
-  font-family: "Times New Roman", Times, serif;
-  background: #f4f6f8;
-  display: flex; /*turns a container into a flexbox layout*/
+  background: #f4f6f9;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
+/* CARD */
 .container {
-  background: rgb(118, 177, 198);
-  padding: 30px;
-  width: 550px;
-  /* the form will not be hanging */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 20px; /*this can remove the sharp edges on a form and make it to be curved*/
+  width: 100%;
+  max-width: 550px;
+  background: rgb(89, 137, 154);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
+/* LOGO */
 .logo {
-  width: 280px; /* adjust size */
-  display: block;
-  margin: 0 auto 10px; /* center it */
-  background-color: lightseagreen;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-h1 {
-  text-align: center;
-  font-size: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+.logo img {
+  width: 200px;
 }
 
 h2 {
   text-align: center;
-  margin-top: 30px; /* pushes h2 down from the element above */
-  margin-bottom: 30px; /* adds spacing below h2 for clarity */
-  font-size: 30px;
-  color: #333;
-}
-
-/* I am giving my paragraph a color ,font-size, and also align it to the centre */
-p {
-  text-align: center;
-  color: rgb(39, 38, 38);
+  margin-bottom: 15px;
+  margin-top: 15px;
+  color: #1e2a38;
   font-size: 20px;
 }
 
-/* here i am designing my entire form */
-form {
-  display: flex;
-  flex-direction: column;
+h1 {
+  text-align: center;
+  margin-bottom: 15px;
   margin-top: 15px;
+  color: #1e2a38;
 }
 
 label {
-  margin-top: 12px;
-  font-size: 20px;
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
   font-weight: bold;
+  color: #333;
 }
 
 input {
-  padding: 10px;
-  margin-top: 7px;
-  border-radius: 6px;
   width: 90%;
-  border: 1px solid #242323;
+  padding: 12px;
+  margin-top: 6px;
+  border: 1px solid #c2c0c0;
+  border-radius: 8px;
+  outline: none;
 }
 
-/* styling my button */
+input:focus {
+  border-color: #3498db;
+}
+
 button {
-  margin-top: 19px;
-  padding: 9px;
   width: 60%;
-  border-radius: 6px;
-  background: #363636;
-
+  margin-top: 18px;
+  padding: 12px;
+  background: #262d31;
   color: white;
-  font-size: 18px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.5s;
+  font-size: 15px;
 }
 
-/* #I am making my submit button to hover around */
 button:hover {
-  background: #2468b1;
+  background: #2f3e52;
 }
+
+.btn {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  background: #262d31;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  width: 60%;
+}
+
+.btn:hover {
+  background: #38a9f4;
+}
+
+footer {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 17px;
+  color: rgb(26, 24, 24);
+}
+.remember-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.remember-box input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.remember-box label {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+input,
+select {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  width: 85%;
+}
+
+input:focus,
+select:focus {
+  border-color: #1e2a38;
+  box-shadow: 0 0 5px rgba(30, 42, 56, 0.3);
+}
+@media (max-width: 600px) {
+  .container {
+    margin: 15px;
+    padding: 20px;
+  }
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* FORM */
+.stock-form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* SUMMARY */
+.summary {
+  background: #f9fafc;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* SIDE BY SIDE CARDS */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+/* CARD STYLE */
+.summary-box {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+

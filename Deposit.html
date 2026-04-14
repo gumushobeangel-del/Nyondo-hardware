@@ -3,68 +3,153 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NYONDO Hardware Stock Form</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Deposit Scheme</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: #f4f6f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      /* CARD */
+      .container {
+        width: 100%;
+        max-width: 500px;
+        background: rgb(118, 177, 198);
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      /* LOGO */
+      .logo {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .logo img {
+        width: 300px;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 15px;
+        color: #1e2a38;
+      }
+
+      label {
+        display: block;
+        margin-top: 12px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 6px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        outline: none;
+      }
+
+      input:focus,
+      select:focus {
+        border-color: #3498db;
+      }
+
+      button {
+        width: 100%;
+        margin-top: 18px;
+        padding: 12px;
+        background: #1e2a38;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #2f3e52;
+      }
+
+      .btn {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        padding: 10px;
+        background: #3498db;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+      }
+
+      .btn:hover {
+        background: #217dbb;
+      }
+
+      .rec {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 17px;
+        color: rgb(18, 17, 17);
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          margin: 15px;
+          padding: 20px;
+        }
+      }
+    </style>
   </head>
+
   <body>
     <div class="container">
       <div class="logo">
-        <img src="images/logo22.png" alt="Logo" class="logo" />
+        <img src="images/logo22.png" alt="Logo" />
       </div>
-      <h1>NYONDO HARDWARE CUSTOMER DEPOSIT FORM</h1>
+
+      <h2>Deposit Scheme</h2>
+
       <form>
-        <h2>Customer Details</h2>
-        <label for="Name">Full Name</label>
-        <input type="text" id="Name" placeholder="name" required />
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name" required />
 
-        <label for="NIN">NIN Number</label>
-        <input type="text" id="NIN" placeholder="NIN Number" required />
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+256..." required />
 
-        <label for="number">Phone Number</label>
-        <input type="tel" id="number" placeholder="Phone Number" required />
+        <label>Deposit Amount (UGX)</label>
+        <input type="number" placeholder="Enter amount" required />
 
-        <label for="location">Location</label>
-        <input type="text" id="location" placeholder="Location" required />
+        <label>Payment Method</label>
+        <select required>
+          <option value="">Select method</option>
+          <option>Mobile Money</option>
+          <option>Bank Transfer</option>
+          <option>Cash</option>
+        </select>
 
-        <h2>Deposit Information</h2>
-        <label for="amount">Amount</label>
-        <input type="text" id="amount" placeholder="amount" required />
+        <label>Purpose of Deposit</label>
+        <input type="text" placeholder="e.g Cement purchase" />
 
-        <label for="method">Payment Method</label>
-        <input type="text" id="method" placeholder="Payment method" required />
+        <button type="submit">Submit Deposit</button>
 
-        <label for="unit">Transaction ID</label>
-        <input
-          type="text"
-          id="Transaction"
-          placeholder="Transaction ID"
-          required
-        />
+        <a href="stock.html" class="btn">Add Stock</a>
 
-        <label for="currency">Currency</label>
-        <input type="text" id="currency" placeholder="currency" required />
-
-        <h2>Purpose of Deposit</h2>
-        <label for="reason">Reason</label>
-        <input type="text" id="reason" placeholder="reason" required />
-
-        <label for="product">Product</label>
-        <input type="text" id="product" placeholder="product" required />
-
-        <label for="quality">Quality</label>
-        <input type="text" id="quality" placeholder="quality" required />
-
-        <label for="deposit">Deposit Date</label>
-        <input type="date" id="deposit" placeholder="deposit date" required />
-
-        <h2>Additional Notes</h2>
-        <label for="comments">Comments</label>
-        <input type="text" id="comments" placeholder="comments" required />
-
-        <label for="recorded">Recorded by</label>
-        <input type="text" id="recorded" placeholder="recorded" required />
-
-        <button type="submit">Register</button>
+        <p class="rec">Your deposit will be securely recorded and confirmed.</p>
       </form>
     </div>
   </body>
