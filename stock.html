@@ -6,196 +6,213 @@
     <title>NYONDO Hardware Stock System</title>
 
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-      }
+        /* RESET - removes default spacing and sets base font */
+        * {
+          margin: 0; /* removes outer spacing */
+          padding: 0; /* removes inner spacing */
+          box-sizing: border-box; /* makes width include padding & border */
+          font-family: Arial, sans-serif; 
+        }
 
-      body {
-        background: rgb(89, 137, 154);
-      }
+        /* BODY BACKGROUND */
+        body {
+          background: white; 
+        }
 
-      h2 {
-        text-align: center;
-        margin-bottom: 15px;
-        font-size: 30px;
-      }
+        /* MAIN HEADING */
+        h2 {
+          text-align: center;
+          margin-bottom: 15px; /* space below heading */
+          font-size: 30px; 
+        }
 
-      h3{
-        font-size: 30px;
-        color: #1e2a38;
-      }
-      /* HEADER */
-      .top-header {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding: 15px 30px;
-        background: #1e2a38;
-        color: white;
-      }
+        /* SUB HEADING */
+        h3 {
+          font-size: 30px; 
+          color: #1e2a38; 
+        }
 
-      .top-header img {
-        width: 100px;
-      }
+        /* HEADER SECTION */
+        .top-header {
+          display: flex; /* puts items in a row */
+          align-items: center; /* vertically aligns items */
+          gap: 15px; /* space between items */
+          padding: 15px 30px; /* inner spacing */
+          background-color: rgb(89, 137, 154); 
+          color: white; /* text color */
+        }
 
-      .container {
-        padding: 20px;
-      }
+        /* HEADER IMAGE (LOGO) */
+        .top-header img {
+          width: 100px; /* controls image size */
+        }
 
-      /* LAYOUT */
-      .layout {
-        display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        gap: 20px;
-      }
+        /* MAIN CONTAINER */
+        .container {
+          padding: 20px; /* space inside container */
 
-      /* FORM */
-      .form-section {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-      }
 
-      .form-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-      }
-
-  
-      .section-title {
-        grid-column: span 2;
-        font-size: 16px;
-        color: #1e2a38;
-        margin-top: 15px;
-      }
-
-      .input-group {
-        display: flex;
-        flex-direction: column;
-      }
-
-      label {
-        margin-top: 5px;
-        font-size: 15px;
-      }
-
-      input {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        border: 1px solid #373636;
-        border-radius: 6px;
-      }
-
-      .full-width {
-        grid-column: span 2;
-      }
-
-    
-      button {
-        width: 50%;
-        padding: 12px;
-        margin-top: 15px;
-        background: linear-gradient(135deg, #1e2a38, #2f4f6f);
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 15px;
-        font-weight: bold;
-        
-      }
-
-      button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      button:active {
-        transform: scale(0.98);
-      }
-
-      
-      .btn {
-        display: block;
-        text-align: center;
-        margin-top: 10px;
-        padding: 12px;
-        width: 50%;
-        background: white;
-        color: #1e2a38;
-        border: 2px solid #1e2a38;
-        border-radius: 8px;
-        font-weight: bold;
-        text-decoration: none;
-    
-      }
-
-      .btn:hover {
-        background: #1e2a38;
-        color: white;
-      }
-
-      /* DASHBOARD */
-      .summary-section {
-        background: #f9fafc;
-        padding: 25px;
-        border-radius: 10px;
-      }
-
-      .summary-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 15px;
-      }
-
-      .summary-box {
-        background: white;
-        padding: 15px;
-        border-radius: 10px;
-        text-align: center;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-      }
-
-      .summary-box h3 {
-        font-size: 15px;
-        color: #252525;
-      }
-
-      .summary-box p {
-        font-weight: bold;
-        margin-top: 5px;
-        color: #1e2a38;
-      }
-
-      .summary-box:hover {
-        background: lightblue;
-      }
-
-      .warning {
-        border-left: 4px solid orange;
-      }
-
-      .danger {
-        border-left: 4px solid red;
-      }
-
-      /* RESPONSIVE */
-      @media (max-width: 900px) {
+        /* MAIN LAYOUT GRID */
         .layout {
-          grid-template-columns: 1fr;
+          display: grid; /* enables grid layout */
+          grid-template-columns: 1.2fr 1fr; /* two columns (left bigger than right) */
+          gap: 20px; /* space between columns */
         }
-      }
 
-      @media (max-width: 600px) {
-        .form-grid {
-          grid-template-columns: 1fr;
+        /* FORM SECTION */
+        .form-section {
+
+      background-color: rgb(89, 137, 154);
+          padding: 20px; /* inner spacing */
+          border-radius: 10px; /* rounded corners */
+
         }
-      }
+
+        /* FORM GRID (INPUTS) */
+        .form-grid {
+          display: grid; /* grid layout */
+          grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+          gap: 15px; /* spacing between inputs */
+        }
+
+        /* SECTION TITLE INSIDE FORM */
+        .section-title {
+          grid-column: span 2; /* makes it stretch across both columns */
+          font-size: 16px; 
+          color: #1e2a38; 
+          margin-top: 15px; /* space above */
+        }
+
+        /* INPUT GROUP (LABEL + INPUT) */
+        .input-groupy {
+          display: flex; /* flex layout */
+          flex-direction: column; /* stack items vertically */
+        }
+
+        /* LABEL STYLING */
+        label {
+          margin-top: 5px; /* space above label */
+          font-size: 15px; /* text size */
+        }
+
+        /* INPUT FIELDS */
+        input {
+          width: 100%; 
+          padding: 10px; /* inner spacing */
+          margin-top: 5px; /* space above */
+          border: 1px solid #292929; /* border style */
+          border-radius: 6px; /* rounded corners */
+        }
+
+        /* BUTTON STYLE */
+        button {
+          width: 70%; 
+          padding: 12px; /* inner spacing */
+          margin-top: 15px; /* space above */
+          background: linear-gradient(
+            135deg,
+            #1e2a38,
+            #2f4f6f
+          ); 
+          color: white; 
+          border: none; /* removes border */
+          border-radius: 8px; /* rounded corners */
+          cursor: pointer; /* pointer on hover */
+          font-size: 15px; 
+          font-weight: bold; 
+        }
+
+        /* BUTTON HOVER EFFECT */
+        button:hover {
+          transform: translateY(-2px); /* slight lift effect */
+          background: #1e2a38; /* darker background */
+        }
+
+        /* LINK BUTTON STYLE */
+        .btn {
+          display: block; /* makes it behave like block */
+          text-align: center; /* centers text */
+          margin-top: 10px; /* space above */
+          padding: 12px; /* inner spacing */
+          width: 70%; /* width */
+          background: linear-gradient(135deg, #1e2a38, #2f4f6f); /* gradient */
+          color: white; /* text color */
+          border-radius: 8px; /* rounded corners */
+          font-weight: bold; /* bold text */
+          text-decoration: none; /* removes underline */
+        }
+
+        /* LINK BUTTON HOVER */
+        .btn:hover {
+          background: #1e2a38; /* darker background */
+          color: white; /* keeps text white */
+        }
+
+        /* DASHBOARD SECTION */
+        .summary-section {
+          background:   rgb(89, 137, 154);
+          padding: 25px; /* inner spacing */
+          border-radius: 10px; /* rounded corners */
+        }
+
+        /* SUMMARY GRID */
+        .summary-grid {
+          display: grid; /* grid layout */
+          grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+          /* responsive columns that adjust automatically */
+          gap: 15px;
+        }
+
+        /* SUMMARY BOXES */
+        .summary-box {
+          background: white;
+          padding: 15px; /* inner spacing */
+          border-radius: 10px; /* rounded corners */
+          text-align: center;
+
+        }
+
+        /* SUMMARY BOX TITLE */
+        .summary-box h3 {
+          font-size: 15px;
+          color: #252525;
+        }
+
+        /* Summary box value */
+        .summary-box p {
+          font-weight: bold;
+          margin-top: 5px;
+          color: #1e2a38;
+        }
+
+        /* HOVER EFFECT FOR SUMMARY BOX */
+        .summary-box:hover {
+          background: lightblue; /* changes background on hover */
+        }
+
+        /* Warning box style*/
+        .warning {
+          border-left: 4px solid orange; /* orange left border */
+        }
+
+        /* Danger box style */
+        .danger {
+          border-left: 4px solid red; /* red left border */
+        }
+
+        /* RESPONSIVE DESIGN (TABLETS) */
+        @media (max-width: 900px) {
+          .layout {
+            grid-template-columns: 1fr; /* stack layout into one column */
+          }
+        }
+
+        /* Responsive on mobile phones */
+        @media (max-width: 600px) {
+          .form-grid {
+            grid-template-columns: 1fr; /* inputs become one column */
+          }
+        }
     </style>
   </head>
 
@@ -207,65 +224,109 @@
 
     <div class="container">
       <div class="layout">
-      
         <div class="form-section">
           <h2>Stock Form</h2>
 
           <form class="form-grid">
             <h3 class="section-title">Item Details</h3>
 
-            <div class="input-group">
+            <div class="input-groupy">
               <label>Item Name</label>
               <input type="text" id="item-name" placeholder="item-name" />
             </div>
 
-            <div class="input-group">
+            <div class="input">
               <label>Supplier</label>
-              <input type="text" id="supplier" placeholder="Enter supplier name" required />
+              <input
+                type="text"
+                id="supplier"
+                placeholder="Enter supplier name"
+                required
+              />
             </div>
 
-            <div class="input-group">
+            <div class="input-groupy">
               <label>Stock Item</label>
-              <input type="text" id="stock-item" placeholder="Enter stock item name" required />
+              <input
+                type="text"
+                id="stock-item"
+                placeholder="Enter stock item name"
+                required
+              />
             </div>
 
-            <div class="input-group">
+            <div class="input-groupy">
               <label>Stock Code</label>
-              <input type="text" id="stock-code" placeholder="Enter stock code" required />
+              <input
+                type="text"
+                id="stock-code"
+                placeholder="Enter stock code"
+                required
+              />
             </div>
 
             <h3 class="section-title">Stock Details</h3>
 
-            <div class="input-group">
+            <div class="input-groupy">
               <label>Opening Stock</label>
-              <input type="number" id="opening-stock" placeholder="Enter opening stock" required />
+              <input
+                type="number"
+                id="opening-stock"
+                placeholder="Enter opening stock"
+                required
+              />
             </div>
 
-            <div class="input-group">
+            <div class="input-groupy">
               <label>Stock In</label>
-              <input type="number" id="stock-in" placeholder="Enter stock in" required />
+              <input
+                type="number"
+                id="stock-in"
+                placeholder="Enter stock in"
+                required
+              />
             </div>
 
-            <div class="input-group">
+            <div class="input-groupy">
               <label>Stock Out</label>
-              <input type="number" id="stock-out" placeholder="Enter stock out" required />
+              <input
+                type="number"
+                id="stock-out"
+                placeholder="Enter stock out"
+                required
+              />
             </div>
 
-            <div class="input-group">
+            <div class="input-groupy">
               <label>Current Stock</label>
-              <input type="number" id="current-stock" placeholder="Enter current stock" required />
+              <input
+                type="number"
+                id="current-stock"
+                placeholder="Enter current stock"
+                required
+              />
             </div>
 
             <h3 class="section-title">Pricing</h3>
 
-            <div class="input-group">
+            <div class="input-groupy">
               <label>Unit Price</label>
-              <input type="text" id="unit-price" placeholder="Enter unit price" required />
+              <input
+                type="text"
+                id="unit-price"
+                placeholder="Enter unit price"
+                required
+              />
             </div>
 
-            <div class="input-group">
+            <div class="input-groupy">
               <label>Quantity</label>
-              <input type="number" id="quantity" placeholder="Enter quantity" required />
+              <input
+                type="number"
+                id="quantity"
+                placeholder="Enter quantity"
+                required
+              />
             </div>
 
             <div class="full-width">

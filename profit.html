@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(89, 137, 154);
+        color: #333;
+      }
+      .navbar {
+        background-color: #1e2a38;
+        color: white;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .container {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        flex-wrap: wrap;
+      }
+      .cards {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        width: 30%;
+      }
+      .card {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        flex: 1 1 calc(50% - 20px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .card:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        background-color: lightblue;
+        cursor: pointer;
+      }
+      .card h2 {
+        margin-bottom: 10px;
+        color: #1e2a38;
+      }
+      .card p {
+        font-size: 18px;
+        color: #555;
+      }
+
+      /* FORMS SIDE BY SIDE */
+      form {
+        flex: 1;
+      }
+
+      .form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 100%; /* FIXED */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .form h2 {
+        text-align: center;
+        margin-bottom: 15px;
+        color: #1e2a38;
+      }
+      .form-two {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .form-three {
+        display: flex;
+        flex-direction: column;
+      }
+      .form-three label {
+        margin-bottom: 5px;
+        font-weight: bold;
+        font-size: 17px;
+      }
+      .form-three input,
+      .form-three select {
+        padding: 10px;
+        border: 1px solid #b9b4b4;
+        border-radius: 6px;
+      }
+      .form button {
+        width: 50%;
+        margin: 20px auto 0;
+        padding: 10px;
+        background: linear-gradient(135deg, #1e2a38, #2f4f6f);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .form button:hover {
+        background: #1e2a38;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Nyondo Profit</h1>
+    </div>
+
+    <div class="container">
+      <!-- CARDS -->
+      <div class="cards">
+        <div class="card">
+          <h2>Total Revenue</h2>
+          <p>UGX 5,000,000</p>
+        </div>
+        <div class="card">
+          <h2>Total Expenses</h2>
+          <p>UGX 3,000,000</p>
+        </div>
+        <div class="card">
+          <h2>Net Profit</h2>
+          <p>UGX 2,000,000</p>
+        </div>
+        <div class="card">
+          <h2>Profit Margin</h2>
+          <p>40%</p>
+        </div>
+      </div>
+
+      
+      <form>
+        <div class="form">
+          <h2>Calculate Profit</h2>
+          <div class="form-two">
+            <div class="form-three">
+              <label for="startdate">Start Date</label>
+              <input type="date" id="startdate" required />
+            </div>
+
+            <div class="form-three">
+              <label for="enddate">End Date</label>
+              <input type="date" id="enddate" required />
+            </div>
+
+            <div class="form-three">
+              <label for="productcategory">Product Category</label>
+              <select id="productcategory" required>
+                <option value="all">All Categories</option>
+                <option value="wood">Wood</option>
+                <option value="glass">Glass</option>
+                <option value="cement">Cement</option>
+                <option value="nails">Nails</option>
+              </select>
+            </div>
+
+            <div class="form-three">
+              <label for="reporttype">Report Type</label>
+              <select id="reporttype" required>
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+              </select>
+            </div>
+
+            <button type="submit">Calculate</button>
+          </div>
+        </div>
+      </form>
+
+    
+      <form>
+        <div class="form">
+          <h2>Record Expense</h2>
+          <div class="form-two">
+            <div class="form-three">
+              <label for="expensename">Expense Name</label>
+              <input
+                type="text"
+                id="expensename"
+                placeholder="e.g Transport"
+                required
+              />
+            </div>
+
+            <div class="form-three">
+              <label for="amount">Amount (UGX)</label>
+              <input
+                type="number"
+                id="amount"
+                placeholder="Enter amount"
+                required
+              />
+            </div>
+
+            <div class="form-three">
+              <label for="category">Category</label>
+              <select id="category" required>
+                <option value="transport">Transport</option>
+                <option value="rent">Rent</option>
+                <option value="utilities">Utilities</option>
+                <option value="supplies">Supplies</option>
+              </select>
+            </div>
+
+            <div class="form-three">
+              <label for="date">Date</label>
+              <input type="date" id="date" required />
+            </div>
+
+            <button type="submit">Add Expense</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
